@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/profile.dart';
 
 class DetailMhs extends StatelessWidget {
-  const DetailMhs({super.key});
+  final String name;
+  final String nim;
+  final String ttl;
+  const DetailMhs({super.key, required this.name, required this.nim, required this.ttl});
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +39,11 @@ class DetailMhs extends StatelessWidget {
                 children: [
                   Icon(Icons.person, size: 150),
                   Text(
-                    "Nabila Reyna",
+                    name,
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
-                  Text("230605110093"),
-                  Text("Malang, 28 Oktober 2004"),
+                  Text(nim),
+                  Text(ttl),
                   ElevatedButton(
                       onPressed: () {
                         Navigator.pop(context);
