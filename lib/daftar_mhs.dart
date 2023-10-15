@@ -18,41 +18,44 @@ class DaftarMhs extends StatelessWidget {
               style: TextStyle(color: Colors.black),
             ),
             backgroundColor: Colors.white),
-        body: ListView.builder(
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            itemCount: 3,
-            itemBuilder: (context, index) {
-              return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => DetailMhs(
-                                name: data[index]["name"],
-                                nim: data[index]["nim"],
-                                ttl: data[index]["ttl"],
-                              )));
-                },
-                child: Card(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                  color: Colors.blueAccent,
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        Icon(Icons.person, size: 150),
-                        Text(
-                          data[index]["name"],
-                          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                        ),
-                        Text(data[index]["nim"]),
-                        Text(data[index]["ttl"])
-                      ],
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              itemCount: 4,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DetailMhs(
+                                  name: data[index]["name"],
+                                  nim: data[index]["nim"],
+                                  ttl: data[index]["ttl"],
+                                )));
+                  },
+                  child: Card(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    color: Colors.purple.shade300,
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Icon(Icons.person, size: 150),
+                          Text(
+                            data[index]["name"],
+                            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                          ),
+                          Text(data[index]["nim"]),
+                          Text(data[index]["ttl"])
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              );
-            }));
+                );
+              }),
+        ));
   }
 }
